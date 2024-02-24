@@ -21,3 +21,15 @@
   </details>
 
   ⇒ **스마트폰을 서버로** 이용하고, **Termux**를 통해 프로그램 구동하기
+
+- 반복 작업을 하는 경우, 경고 메시지가 뜸
+  > Shard ID None heartbeat blocked for more than 10 seconds
+  
+  ⇒ `tasks.loop()`로 반복 작업을 표시해줘야 함.
+  [참고](https://m.blog.naver.com/6116949/222045864545)
+  [코드](https://github.com/shin6949/examplediscordbot/blob/previous/7_Repeated_Work.py)
+  ```python
+  from discord.ext import tasks
+    @tasks.loop(seconds=30)
+    async def check_server_status(self):
+  ```
